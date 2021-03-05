@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PowerApps</name>
+    </assembly>
+    <members>
+        <member name="T:PowerApps.Controllers.PeopleController">
+            <summary>
+            Defines endpoint to search for starwars character information.
+            </summary>
+        </member>
+        <member name="M:PowerApps.Controllers.PeopleController.#ctor(PowerApps.Interfaces.ICachingClient)">
+            <summary>
+            Defines endpoint to search for starwars character information.
+            </summary>
+            <param name="client">A client caching previous made request for performance improvements.</param>
+        </member>
+        <member name="M:PowerApps.Controllers.PeopleController.Search(System.String,System.Int32)">
+            <summary>
+            Searches for characters part of the starwars universe
+            </summary>
+            <param name="search">An optional search term. When omitted, all characters are returned.</param>
+            <param name="max">An optional limit. Limits the amount of characters returned to a maximum of the provided value.</param>
+            <returns>All characters found in the starwars universe matching the given <paramref name="search"/> term up to a maximum number of <paramref name="max"/>.</returns>
+        </member>
+        <member name="T:PowerApps.Controllers.PlanetsController">
+            <summary>
+            Defines endpoints to search for starwars planet information.
+            </summary>
+        </member>
+        <member name="M:PowerApps.Controllers.PlanetsController.#ctor(PowerApps.Interfaces.ICachingClient)">
+            <summary>
+            Defines endpoint to search for starwars planet information.
+            </summary>
+            <param name="client">A client caching previous made request for performance improvements.</param>
+        </member>
+        <member name="M:PowerApps.Controllers.PlanetsController.Search(System.String,System.Int32)">
+            <summary>
+            Searches for planet information of the starwars universe
+            </summary>
+            <param name="search">An optional search term. When omitted, all planets are returned.</param>
+            <param name="max">An optional limit. Limits the amount of planets returned to a maximum of the provided value.</param>
+            <returns>All planets found in the starwars universe matching the given <paramref name="search"/> term up to a maximum number of <paramref name="max"/>.</returns>
+        </member>
+        <member name="T:PowerApps.Models.PersonDto">
+            <summary>
+            Attributes of starwars universe characters.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.Name">
+            <summary>
+            The name of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.Height">
+            <summary>
+            The height of this character measured in meters.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.Mass">
+            <summary>
+            The weight of this character measured in kilograms.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.HairColor">
+            <summary>
+            The hair color of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.SkinColor">
+            <summary>
+            The skin color of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.EyeColor">
+            <summary>
+            The eye color of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.BirthYear">
+            <summary>
+            The year of birth of this character defined in 'before battle of yavin' units.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.Gender">
+            <summary>
+            The gender of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.Url">
+            <summary>
+            A link to the specific information page of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.HomeWorld">
+            <summary>
+            A link to information about the home world of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.ImageSource">
+            <summary>
+            An link to an image source of this character.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PersonDto.HomeWorldName">
+            <summary>
+            A human readable name of the home world of this character.
+            </summary>
+        </member>
+        <member name="T:PowerApps.Models.PlanetDto">
+            <summary>
+            Attributes of starwars universe planets.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Name">
+            <summary>
+            The name of this planet.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.RotationPeriod">
+            <summary>
+            The rotation period of this planet measured in earth days.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.OrbitalPeriod">
+            <summary>
+            The orbital period of this planet measured in earth years.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Diameter">
+            <summary>
+            The diameter of this planet measure in kilometers.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Climate">
+            <summary>
+            The dominating climate of this planet.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Gravity">
+            <summary>
+            The gravity of this planet measured in standard units (1g = 1 standard).
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Terrain">
+            <summary>
+            The dominating terrain of this planet.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.SurfaceWater">
+            <summary>
+            A value indicating whether this planets has surface water.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Population">
+            <summary>
+            The population amount of this planet.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.PlanetDto.Url">
+            <summary>
+            A link to the specific information page of this planet.
+            </summary>
+        </member>
+        <member name="T:PowerApps.Models.QueryResult`1">
+            <summary>
+            A query result container.
+            </summary>
+            <typeparam name="T">The specific resource type been queried.</typeparam>
+        </member>
+        <member name="P:PowerApps.Models.QueryResult`1.Count">
+            <summary>
+            Gets a value indicating how many items were found.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.QueryResult`1.Next">
+            <summary>
+            Gets a link to the next page when the result is paged. Otherwise this property is not set.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.QueryResult`1.Previous">
+            <summary>
+            Gets a link to the previous page when the result is paged. Otherwise this property is not set.
+            </summary>
+        </member>
+        <member name="P:PowerApps.Models.QueryResult`1.Results">
+            <summary>
+            The result of the given query. This collection contains <see cref="P:PowerApps.Models.QueryResult`1.Count"/> amount of items.
+            </summary>
+            <typeparamref name="T">The specific resource type been queried.</typeparamref>
+        </member>
+    </members>
+</doc>

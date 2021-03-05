@@ -9,6 +9,9 @@ using PowerApps.Models;
 
 namespace PowerApps.Controllers
 {
+    /// <summary>
+    /// Defines endpoint to search for starwars character information.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class PeopleController : ControllerBase
@@ -55,11 +58,21 @@ namespace PowerApps.Controllers
             ["Wilhuff Tarkin"] = "https://icons.iconarchive.com/icons/jonathan-rey/star-wars-characters/128/Tarkin-icon.png",
         };
 
+        /// <summary>
+        /// Defines endpoint to search for starwars character information.
+        /// </summary>
+        /// <param name="client">A client caching previous made request for performance improvements.</param>
         public PeopleController(ICachingClient client)
         {
             _client = client;
         }
 
+        /// <summary>
+        /// Searches for characters part of the starwars universe
+        /// </summary>
+        /// <param name="search">An optional search term. When omitted, all characters are returned.</param>
+        /// <param name="max">An optional limit. Limits the amount of characters returned to a maximum of the provided value.</param>
+        /// <returns>All characters found in the starwars universe matching the given <paramref name="search"/> term up to a maximum number of <paramref name="max"/>.</returns>
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(QueryResult<PersonDto>), (int)HttpStatusCode.OK)]

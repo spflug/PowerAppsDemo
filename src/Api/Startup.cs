@@ -23,7 +23,15 @@ namespace PowerApps
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "PowerApps", Version = "v1"}); });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Starwars characters and planets", Version = "v1",
+                    Description = "Provides an API to search for Starwars character and planet information.",
+                });
+                c.IncludeXmlComments(@"C:\.workspace\devops\devsimonpflughoft\PowerApps\src\Api\PowerApps.xml");
+            });
             services.AddMemoryCache();
             services.AddSingleton<ICachingClient, CachingClient>();
         }
@@ -34,8 +42,14 @@ namespace PowerApps
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PowerApps v1"));
+                app.UseSwagger(c =>
+                {
+                    c.SerializeAsV2 = true;
+                });
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PowerApps v1");
+                });
             }
 
             app.UseHttpsRedirection();
