@@ -37,6 +37,7 @@ namespace PowerApps.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(QueryResult<PlanetDto>), (int)HttpStatusCode.OK)]
+        [ActionName("SearchPlanets")]
         public async Task<IActionResult> Search([FromQuery] string search, [FromQuery] int max = int.MaxValue)
         {
             var queryResult = await _client.Search<PlanetDto>("planets", search, max);

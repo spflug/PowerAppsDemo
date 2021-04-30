@@ -12,10 +12,12 @@ namespace PowerApps.Models
         /// Gets a value indicating how many items were found.
         /// </summary>
         public int Count { get; init; }
+
         /// <summary>
         /// Gets a link to the next page when the result is paged. Otherwise this property is not set.
         /// </summary>
         public string Next { get; init; }
+
         /// <summary>
         /// Gets a link to the previous page when the result is paged. Otherwise this property is not set.
         /// </summary>

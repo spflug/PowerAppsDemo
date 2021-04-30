@@ -76,6 +76,7 @@ namespace PowerApps.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(QueryResult<PersonDto>), (int)HttpStatusCode.OK)]
+        [ActionName("SearchPeople")]
         public async Task<IActionResult> Search([FromQuery] string search, [FromQuery] int max = int.MaxValue)
         {
             var peopleQuery = _client.Search<PersonDto>("people", search, max);

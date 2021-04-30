@@ -1,12 +1,13 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using PowerApps.Controllers;
 using PowerApps.Implementations;
 using PowerApps.Interfaces;
+#pragma warning disable 1591
 
 namespace PowerApps
 {
@@ -19,7 +20,6 @@ namespace PowerApps
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -29,6 +29,12 @@ namespace PowerApps
                 {
                     Title = "Starwars characters and planets", Version = "v1",
                     Description = "Provides an API to search for Starwars character and planet information.",
+                    Contact = new OpenApiContact
+                    {
+                        Email = "simon.pflughoft@adesso.de",
+                        Url = new Uri("https://adesso.de"),
+                        Name = "adesso SE"
+                    }
                 });
                 c.IncludeXmlComments(@"C:\.workspace\devops\devsimonpflughoft\PowerApps\src\Api\PowerApps.xml");
             });
@@ -36,7 +42,6 @@ namespace PowerApps
             services.AddSingleton<ICachingClient, CachingClient>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

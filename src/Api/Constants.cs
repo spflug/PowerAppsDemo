@@ -1,4 +1,5 @@
-﻿namespace PowerApps
+﻿#pragma warning disable 1591
+namespace PowerApps
 {
     public static class Constants
     {
