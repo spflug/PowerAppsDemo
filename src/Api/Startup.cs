@@ -36,7 +36,7 @@ namespace PowerApps
                         Name = "adesso SE"
                     }
                 });
-                c.IncludeXmlComments(@"C:\.workspace\devops\devsimonpflughoft\PowerApps\src\Api\PowerApps.xml");
+                c.IncludeXmlComments(@"PowerApps.xml");
             });
             services.AddMemoryCache();
             services.AddSingleton<ICachingClient, CachingClient>();
